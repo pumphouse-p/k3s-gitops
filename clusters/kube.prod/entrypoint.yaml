@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: entrypoint
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: clusters/kube.prod/apps
+    repoURL: https://github.com/pumphouse-p/k3s-gitops.git
+    targetRevision: main
+  syncPolicy:
+    automated: {}
