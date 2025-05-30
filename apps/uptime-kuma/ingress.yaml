@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uptime-kuma
+  namespace: uptime-kuma
+  labels:
+    app.kubernetes.io/instance: uptime-kuma
+    app.kubernetes.io/name: uptime-kuma
+spec:
+  rules:
+  - host: status.apps.prod.devinforyou.com
+    http:
+      paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              name: uptime-kuma
+              port:
+                name: http

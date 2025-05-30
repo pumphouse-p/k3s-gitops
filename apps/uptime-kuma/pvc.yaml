@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: uptime-kuma
+  namespace: uptime-kuma
+  labels:
+    app.kubernetes.io/instance: uptime-kuma
+    app.kubernetes.io/name: uptime-kuma
+spec:
+  resources:
+    requests:
+      storage: 1G
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ebs-storageclass
