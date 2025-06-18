@@ -26,11 +26,17 @@ spec:
           volumeMounts:
             - name: prometheus-data
               mountPath: /prometheus
-          securityContext:
-            fsGroup: 2000
-            runAsNonRoot: true
-            runAsUser: 1000
+            - name: prometheus-config
+              mountPath: /etc/prometheus
+          args: ["--web.config.file", "/etc/prometheus/web.yml", "--config.file", "/etc/prometheus/prometheus.yml"]
+      securityContext:
+        fsGroup: 2000
+        runAsNonRoot: true
+        runAsUser: 1000
       volumes:
         - name: prometheus-data
           persistentVolumeClaim:
             claimName: prometheus-data
+        - name: prometheus-config
+          secret:
+            secretName: prometheus-config
