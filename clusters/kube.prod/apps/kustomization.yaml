@@ -4,3 +4,4 @@ kind: Kustomization
 bases:
   - ../../../argocd/uptime-kuma
   - ../../../argocd/prometheus
+  - ../../../argocd/opa
