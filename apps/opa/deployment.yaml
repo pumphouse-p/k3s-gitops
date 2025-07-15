@@ -28,19 +28,19 @@ spec:
             - "--server"
             - "--log-level=debug"
             - "--addr=0.0.0.0:8181"
-            - "/policies/aap_policy_examples"
+            - "/opa-aap/policies"
           volumeMounts:
-            - mountPath: /policies
+            - mountPath: /opa-aap
               name: policies
       initContainers:
         - name: git-clone
           image: alpine/git
           args:
             - "clone"
-            - "https://github.com/ansible/example-opa-policy-for-aap.git"
-            - "/policies"
+            - "https://github.com/pumphouse-p/ansible-policies.git"
+            - "/opa-aap"
           volumeMounts:
-            - mountPath: /policies
+            - mountPath: /opa-aap
               name: policies
       volumes:
         - name: policies
