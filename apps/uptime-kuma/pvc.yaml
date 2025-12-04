@@ -12,4 +12,3 @@ spec:
       storage: 1G
   accessModes:
     - ReadWriteOnce
-  storageClassName: ebs-storageclass
