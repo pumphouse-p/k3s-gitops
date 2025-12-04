@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/name: uptime-kuma
 spec:
   rules:
-  - host: status.apps.prod.devinforyou.com
+  - host: changeme
     http:
       paths:
         - pathType: Prefix
