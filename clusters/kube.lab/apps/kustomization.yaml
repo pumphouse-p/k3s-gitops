@@ -3,3 +3,14 @@ kind: Kustomization
 
 bases:
   - ../../../argocd/uptime-kuma
+
+patches:
+  - target:
+      group: networking.k8s.io
+      version: v1
+      kind: Ingress 
+      name: uptime-kuma
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/host
+        value: status.apps.lab.devinforyou.com
