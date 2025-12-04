@@ -6,6 +6,9 @@ metadata:
   labels:
     app.kubernetes.io/instance: uptime-kuma
     app.kubernetes.io/name: uptime-kuma
+  annotations:
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
 spec:
   rules:
   - host: changeme
