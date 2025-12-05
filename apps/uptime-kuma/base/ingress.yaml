@@ -11,13 +11,13 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
 spec:
   rules:
-  - host: changeme
-    http:
-      paths:
-        - pathType: Prefix
-          path: /
-          backend:
-            service:
-              name: uptime-kuma
-              port:
-                name: http
+    - host: changeme
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: uptime-kuma
+                port:
+                  name: http

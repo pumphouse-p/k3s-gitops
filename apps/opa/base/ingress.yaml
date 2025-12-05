@@ -6,9 +6,12 @@ metadata:
   labels:
     app.kubernetes.io/instance: opa
     app.kubernetes.io/name: opa
+  annotations:
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
 spec:
   rules:
-    - host: opa.apps.prod.devinforyou.com
+    - host: changeme
       http:
         paths:
           - pathType: Prefix
