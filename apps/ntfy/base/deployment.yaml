@@ -29,7 +29,7 @@ spec:
             - name: NTFY_LOG_LEVEL
               value: INFO
             - name: NTFY_BASE_URL
-              value: ntfy.apps.lab.devinforyou.com
+              value: changeme
           ports:
           - containerPort: 80
             name: http

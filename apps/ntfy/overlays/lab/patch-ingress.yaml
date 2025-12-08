@@ -1,3 +1,6 @@
 - op: replace
   path: /spec/rules/0/host
   value: notify.apps.lab.devinforyou.com
+- op: replace
+  path: /spec/containers/0/env/4/value
+  value: https://notify.apps.lab.devinforyou.com
