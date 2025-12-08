@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ntfy
+  namespace: ntfy
+  labels:
+    app.kubernetes.io/instance: ntfy
+    app.kubernetes.io/name: ntfy
+spec:
+  selector:
+    matchLabels:
+      app: ntfy
+  template:
+    metadata:
+      labels:
+        app: ntfy
+        app.kubernetes.io/instance: ntfy
+        app.kubernetes.io/name: ntfy
+    spec:
+      containers:
+        - name: ntfy
+          image: binwiederhier/ntfy:v2.15.0
+          args: ["serve"]
+          env:
+            - name: TZ
+              value: America/New_York
+            - name: NTFY_DEBUG
+              value: "false"
+            - name: NTFY_LOG_LEVEL
+              value: INFO
+            - name: NTFY_BASE_URL
+              value: ntfy.apps.lab.devinforyou.com
+          ports:
+          - containerPort: 80
+            name: http
+          volumeMounts:
+            - name: ntfy-cache
+              mountPath: /var/cache/ntfy
+      volumes:
+        - name: ntfy-cache
+          persistentVolumeClaim:
+            claimName: ntfy-cache
