@@ -1,5 +1,5 @@
 - op: replace
-  path: /spec/containers/0/env/4
+  path: /spec/template/spec/containers/0/env/4
   value:
     name: NTFY_BASE_URL
     value: https://notify.apps.lab.devinforyou.com
