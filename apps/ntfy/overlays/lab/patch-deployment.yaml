@@ -1,4 +1,4 @@
-- op: replace
+- op: add
   path: /spec/template/spec/containers/0/env/4
   value:
     name: NTFY_BASE_URL
