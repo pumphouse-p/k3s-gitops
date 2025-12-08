@@ -12,3 +12,10 @@ patches:
       kind: Ingress
       name: ntfy
       namespace: ntfy
+  - path: patch-deployment.yaml
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: ntfy
+      namespace: ntfy
