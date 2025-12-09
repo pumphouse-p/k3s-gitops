@@ -5,3 +5,4 @@ resources:
   - ../../../argocd/uptime-kuma/overlays/lab
   - ../../../argocd/opa/overlays/lab
   - ../../../argocd/ntfy/overlays/lab
+  - ../../../argocd/prometheus/overlays/lab

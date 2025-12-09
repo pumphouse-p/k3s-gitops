@@ -11,5 +11,4 @@ spec:
     requests:
       storage: 20G
   accessModes:
-    - ReadWriteOnce
-  storageClassName: ebs-storageclass
+    - ReadWriteMany
