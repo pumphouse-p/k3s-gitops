@@ -12,3 +12,4 @@ spec:
       storage: 20G
   accessModes:
     - ReadWriteMany
+  volumeMode: Block
