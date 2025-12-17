@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: stirling
+  namespace: stirling
+  labels:
+    app.kubernetes.io/instance: stirling
+    app.kubernetes.io/name: stirling
+spec:
+  selector:
+    matchLabels:
+      app: stirling
+  template:
+    metadata:
+      labels:
+        app: stirling
+        app.kubernetes.io/instance: stirling
+        app.kubernetes.io/name: stirling
+    spec:
+      containers:
+        - name: stirling
+          image: stirlingtools/stirling-pdf:latest
+          ports:
+          - containerPort: 8080
+            name: http
+          volumeMounts:
+            - name: stirling
+              mountPath: /configs
+      volumes:
+        - name: stirling
+          persistentVolumeClaim:
+            claimName: stirling
